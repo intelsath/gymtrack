@@ -1,0 +1,21 @@
+GCCFLAGS=-g -Os -Wall -mmcu=atmega328p 
+
+all: delay.o lcd.o uart.o I2C.o SSD1306.o Framebuffer.o
+
+delay.o: delay.c
+	avr-gcc ${GCCFLAGS} -o delay.o -c delay.c
+
+lcd.o: lcd.c
+	avr-gcc ${GCCFLAGS} -o lcd.o -c lcd.c
+
+uart.o: uart.c
+	avr-gcc ${GCCFLAGS} -o uart.o -c uart.c
+
+I2C.o: I2C.cpp
+	avr-gcc ${GCCFLAGS} -o I2C.o -c I2C.cpp
+
+SSD1306.o: SSD1306.cpp
+	avr-gcc ${GCCFLAGS} -o SSD1306.o -c SSD1306.cpp
+
+Framebuffer.o: Framebuffer.cpp
+	avr-gcc ${GCCFLAGS} -o Framebuffer.o -c Framebuffer.cpp
